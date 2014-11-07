@@ -1,0 +1,13 @@
+/* FONT PATH
+ * -------------------------- */
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: asset-url('#{$fa-font-path}/fontawesome-webfont.eot');
+  src: asset-url('#{$fa-font-path}/fontawesome-webfont.eot') format('embedded-opentype'),
+       asset-url('#{$fa-font-path}/fontawesome-webfont.woff') format('woff'),
+       asset-url('#{$fa-font-path}/fontawesome-webfont.ttf') format('truetype'),
+       asset-url('#{$fa-font-path}/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

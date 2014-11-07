@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: postgresql_user
+  password:
+
+development:
+  <<: *default
+  database: app_development
+
+test: &test
+  <<: *default
+  database: app_test
+
+cucumber:
+  <<: *test

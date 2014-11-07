@@ -1,0 +1,11 @@
+.container.m-t-lg
+  .row
+    .col-md-8.col-md-offset-2.text-center
+      .jumbotron
+        %h2
+          Thanks!
+        %p
+          Your answered have been sent.
+        %p
+          %small.text-muted
+            = link_to "back to list", list_path(@list.uuid)

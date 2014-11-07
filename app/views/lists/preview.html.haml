@@ -1,0 +1,5 @@
+- @questions.each_with_index do |q,i|
+  %h5
+    %strong
+      #{i+1}.
+    = sanitize q.body

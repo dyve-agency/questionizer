@@ -1,0 +1,39 @@
+.textarea-wrapper{
+  padding: 20px 0;
+  cursor:pointer;
+}
+
+.textarea-lg{
+  width:100%;
+  font-size:16px;
+  resize: none;
+}
+
+.textarea-blockquote-style-wrapper{
+  padding: 10px 20px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 20px;
+  border-left: 5px solid #dfd7ca;
+  textarea{
+    font-size: 18px;
+  }
+}
+
+#questions-preview{
+  min-height: 150px;
+}
+
+.question-list-counter{
+  font-size:22px;
+  // background:#f8f5f0;
+  padding:10px;
+  border-radius:5px;
+  .total, .answered{
+  }
+  .progress{
+    margin-top:6px;
+    // height:6px;
+  }
+}
+

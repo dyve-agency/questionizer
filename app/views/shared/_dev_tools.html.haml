@@ -1,0 +1,12 @@
+#dev-tools
+  = form_tag({:controller => "/dev", :action=>"impersonate"}, :class=>"form-inline", rel:"auto-submit") do
+    -#- if false Rails.env.development?
+    -#  = link_to "tests", jasmine_rails_path, class:"btn"
+    = link_to "routes", "/rails/info/routes", class:"btn"
+    = link_to "mailcatcher", "http://127.0.0.1:1080", class:"btn"
+    = link_to (I18n.available_locales - [I18n.locale]).first, url_for(request.query_parameters.merge(_locale: (I18n.available_locales - [I18n.locale]).first)), class:"btn"
+    = select_tag "user_id", options_for_select(User.all.collect{|u| ["[#{u.email}] #{u.id}", u.id] },  [current_user.try(:email), current_user.try(:id)] ), style:"width:200px"
+    %button.btn.btn-xs.btn-white{onClick:"$('#dev-tools form').submit();"}
+      %i.fa.fa-arrow-right
+    = link_to "X", "#", class:"btn", onClick:"$('#dev-tools').hide();return false;"
+  = link_to "<<", "#", class:"btn hide-when-active", onClick:"$('#dev-tools').toggleClass('active');return false;", onMouseOver:"$('#dev-tools').toggleClass('active');return false;"

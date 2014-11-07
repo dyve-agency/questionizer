@@ -1,0 +1,45 @@
+#question-list.m-t-lg
+  - @questions.each_with_index do |q,i|
+    .question.m-t-lg{"data-answered" => q.answered?.to_s}
+      = form_for q do |f|
+        = hidden_field_tag :list_uuid, @list.uuid
+        %h3{class:("text-success" if q.answered?)}
+          %i.fa.fa-check-square{class:("hidden" if !q.answered?)}
+          %i.fa.fa-square{class:("hidden" if q.answered?)}
+          %strong
+            #{i+1}.
+          = sanitize q.body
+
+        .textarea-blockquote-style-wrapper.m-l-lg
+          = f.text_area :reply, class:"borderless textarea-lg", placeholder:"Click here to reply", autofocus:"true"
+
+  %br
+  %br
+  .question-list-counter.clearfix
+    .numbers.pull-left.m-r
+      %span.answered
+        = answered_questions_count = @questions.to_a.count(&:answered?)
+      %span.divider
+        \/
+      %span.total
+        = questions_count = @questions.length
+    .progress.m-b-none
+      .progress-bar{:style => "width: #{(100*answered_questions_count/questions_count).round}%"}
+
+  = form_tag notify_list_path(@list.uuid), id:"question-list-notify-form" do
+    - all_answered = answered_questions_count == questions_count
+    %h4#question-list-submit-hint.text-muted{class:("hidden" if all_answered)}
+      Please reply all questions before sending the answers.
+    %input#question-list-submit.btn.btn-success{type:"submit", value:"Send Answers", disabled:"disabled"}
+
+%br
+%br
+%br
+%br
+%br
+%hr
+%small.text-muted
+  You can not change the list of questions once is created. But you can
+  = link_to clone_list_path(@list.uuid) do
+    %i.fa.fa-code-fork
+    Create a new list based on this one

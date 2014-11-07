@@ -1,0 +1,40 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world!"
+  seo_default_title: "Questionizer - Zeit.IO"
+  seo_default_desc: "An already working application with the latest libraries that we love, and our own conventions, already in place"
+  dev:
+    locales_seo_title: 'I18n & Locales in Rails Blank App'
+    locales_intro: "A page to check the locales status of the web site"
+    locales_subintro_html: "The logic is managed by <kbd>LocaleAware</kbd> controller concern. It is being tested using this page that <strong> won't </strong> appear in production. Please don't remove this :)"
+    locales_current_locale: "Current Locale"
+    locales_available_locales: "Available Locales"
+    locales_default_locale: "Default Locale"
+  shared:
+    errors:
+      one: '1 error prohibited this record from being saved:'
+      other: '%{count} errors prohibited this record from being saved:'
+      file_too_big: "too big (max %{size} MB)"
+  frontpage:
+    sign_up_btn: "Register"
+  log_out: "Logout"

@@ -1,0 +1,4 @@
+#flash
+  - flash.each do |key, value|
+    .alert{class:flash_type_to_bootstrap_class(key)}
+      = sanitize value

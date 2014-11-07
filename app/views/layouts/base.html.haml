@@ -1,0 +1,23 @@
+!!!
+%html
+  = head_tags
+
+  %body{class:body_css_classes}
+    = bootstrap_data
+
+    #container
+      = render partial:"shared/global_header"
+
+      - if content_for?(:layout_specific)
+        = yield(:layout_specific)
+      - else
+        .container
+          = render 'shared/flashes'
+          %main
+            = yield
+
+    = render partial:"shared/global_footer"
+
+    = dev_tools
+
+    = render 'shared/javascript'

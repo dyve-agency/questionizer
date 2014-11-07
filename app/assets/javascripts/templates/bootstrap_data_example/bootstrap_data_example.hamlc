@@ -1,0 +1,63 @@
+%h1
+  Bootstrap Data
+  %p
+    %small Our own baked solution to share data between the backend and the frontend
+%h2 How does it work?
+%ol
+  %li
+    %p
+      There is some data that you have in the backend that you want to have accessible by javascript.
+    %p
+      In this example the data is:
+    %pre
+      = JSON.stringify(App.bootstrapData('bootstrap-example-from-backend'), null, 4)
+  %li
+    %p
+      We are going to serialize that information as
+      %code json
+      and store it inside a hidden div
+      %code #bootstrap
+    %pre
+      = '<div class="hidden" id="bootstrap">'
+      = '</div>'
+    %p
+      We achieve this in the server side via a
+      %code content_for
+      call to
+      %code bootstrap.
+    %p
+      Here is an example in HAML:
+    %pre
+      = "- content_for :bootstrap do"
+      = "   %div{ data: { bootstrap_example_from_backend: @bootstrap_example_from_backend.to_json } }"
+  %li
+    %p
+      Inside that
+      %code div
+      we are going to create new
+      %code divs
+      uniquely identified by their
+      %code data
+      attribute, where the json string is going to be stored. In our example that
+      %code data
+      attribute is
+      %code data-bootstrap-example-from-backend
+    %p
+      This is the content of
+      %code #bootstrap
+      in this page
+    %pre
+      = $('#bootstrap').wrap('<p/>').parent().html()
+      - $('#bootstrap').unwrap()
+  %li
+    Finally we provide an utility function in the javascript to easily retrieve the information by the name of the data attribute.
+    This function is
+    %code App.bootstrapData
+    %pre
+      App.bootstrapData('bootstrap-example-from-backend')
+      = "//=> #{JSON.stringify(App.bootstrapData('bootstrap-example-from-backend'))}"
+
+%h2 Here is a working example:
+.well
+  %h3= @title
+  %p=  @content

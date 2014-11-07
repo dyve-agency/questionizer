@@ -1,0 +1,53 @@
+.container
+  %h2
+    Mail configuration
+  %p
+    Everything has been already put in place in
+    %code config/smtp_and_url_options.rb
+  %p
+    You will find there also commented code to setup common email providers such as
+    %code GMail
+    %code Google Apps
+    %code Amazon SES
+
+  %hr
+  %h2 Mails in development
+  %p
+    We user
+    %code mailcatcher
+    = link_to "(official web)", "http://mailcatcher.me/"
+    in development.
+  %p
+    It is not included in the
+    %code Gemfile
+    by default. You will find more documentation on how to install and run it in the
+    %code README
+    file.
+
+  %hr
+  %h2 Testing in RSpec
+  %p
+    there is a simple example on how to test mails in the
+    %code DevController
+    test.
+
+  %hr
+  %h2 Try it yourself
+  %p
+    = link_to "click here to send a test mail", url_for(controller:'dev', action:'send_test_mail'), class:'btn btn-default'
+  %p
+    Remembed that you need to have
+    %code mailcatcher
+    lauched (
+    %code mailcatcher --http-ip=0.0.0.0
+    )
+  %p
+    You can open
+    %code mailcatcher
+    = link_to "clicking here", "http://127.0.0.1:1080"
+  %p
+    You will also find a shortcut in the
+    %code developer toolbar
+    on the right bottom corner of the window
+
+

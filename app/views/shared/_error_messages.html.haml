@@ -1,0 +1,7 @@
+- if object.errors.present?
+  .alert.alert-dismissable.alert-danger
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    %strong
+      %ul
+        - object.errors.full_messages.each do |msg|
+          %li= msg

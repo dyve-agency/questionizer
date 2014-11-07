@@ -1,0 +1,25 @@
+= render partial:"/shared/error_messages", locals:{object:@list}
+
+= form_for @list do |f|
+  %h2
+    1) Write your questions
+  %em.text-muted.pull-right
+    Preview
+  .row
+    .col-xs-6
+      .textarea-wrapper
+        =f.text_area :raw_text, id:"questions-raw-text", class:"borderless textarea-lg", placeholder:"Click here to add questions. Separate them adding a new line between them.", autofocus:"true"
+    .col-xs-6
+      #questions-preview.well
+
+  %hr
+  %h2
+    2) Add emails to get notified when the list is answered
+    %em
+      (optional)
+
+  .textarea-wrapper
+    =f.text_area :raw_emails, class:"borderless textarea-lg", placeholder:"Click to add emails. Separete them with commas."
+
+  = f.submit "Create", class:"btn btn-primary"
+

@@ -1,0 +1,26 @@
+%header.navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/"} Questionizer
+    .navbar-collapse.collapse
+      - if false
+        - if current_user
+          .t_user_menu.navbar-right
+            %p.navbar-text
+              = current_user.email
+            = link_to t("log_out"), destroy_user_session_path, method: :delete, class:"btn btn-link navbar-btn"
+
+        - else
+          = form_for(User.new, as: :user, url: session_path(User.new), html: { id:nil, class: "navbar-form navbar-right t_login_form"}) do |f|
+            .form-group
+              = f.email_field :email, :placeholder => "Email", class: "form-control"
+            .form-group
+              = f.password_field :password, autocomplete: "off", :placeholder => "Password", class: "form-control"
+
+            = f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-success"
+

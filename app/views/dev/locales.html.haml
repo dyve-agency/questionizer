@@ -1,0 +1,20 @@
+.jumbotron
+  .container
+    %h2= t('dev.locales_intro')
+    %p=  t('dev.locales_subintro_html')
+    .row.well
+      .col-md-4
+        %h4= t('dev.locales_current_locale')
+        %hr
+        = link_to I18n.locale, url_for(request.query_parameters.merge("#{LocaleAware::LOCALE_PARAM}" => I18n.locale)), class:'btn btn-default'
+
+      .col-md-4
+        %h4= t('dev.locales_available_locales')
+        %hr
+        - I18n.available_locales.each do |locale|
+          = link_to locale, url_for(request.query_parameters.merge("#{LocaleAware::LOCALE_PARAM}" => locale)), class:'btn btn-default'
+
+      .col-md-4
+        %h4= t('dev.locales_default_locale')
+        %hr
+        = link_to I18n.default_locale, url_for(request.query_parameters.merge("#{LocaleAware::LOCALE_PARAM}" => I18n.default_locale)), class:'btn btn-default'
