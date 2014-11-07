@@ -5,6 +5,10 @@
 
 hi Questionizer.
 
+## Demo
+
+[http://questionizer.zeit.io/](http://questionizer.zeit.io)
+
 ## SETING UP THE APP
 
 * Clone it
