@@ -1,7 +1,7 @@
 url_options = {
   'development' => {:host => "localhost"},
   'test'        => {:host => "localhost"},
-  'production'  => {:host => 'www.yourdomain.com'}
+  'production'  => {:host => "questionizer.zeit.io"}
 }
 
 ActionMailer::Base.default_url_options       = url_options[Rails.env]
