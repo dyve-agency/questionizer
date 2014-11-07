@@ -59,10 +59,10 @@ class App.V.Question extends Backbone.View
   render: ->
     @$("textarea").elastic()
 
-  replyChanged: _.debounce(
+  replyChanged: _.throttle(
       ->
         @updateReply()
-      , 800
+      , 1000
     )
 
   updateReply: ->

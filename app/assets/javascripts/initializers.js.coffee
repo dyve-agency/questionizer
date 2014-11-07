@@ -24,7 +24,7 @@ $ ->
       success: (data) ->
         $('#questions-preview').html(data)
 
-  $('#questions-raw-text').elastic().on "keyup", _.debounce(questionPreviewUpdater, 1000)
+  $('#questions-raw-text').elastic().on "keyup", _.throttle(questionPreviewUpdater, 1000)
 
   if $("#question-list").length
     questionList = new App.V.QuestionList(el:$("#question-list"))
