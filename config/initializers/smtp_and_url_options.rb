@@ -30,7 +30,7 @@ when "development"
 when "production"
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address => Rails.application.secrets.smtp_address,
+    :address => Rails.application.secrets.mail_smtp_address,
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true,
